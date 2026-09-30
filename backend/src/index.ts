@@ -4,7 +4,7 @@ import users from './data/users';
 const app = express();
 
 app.get('/', (req, res) => {
-  res.json( 'Bienvenido!' );
+  res.json( '/users para obtener los usuarios' );
 });
 
 app.get('/users', (req, res) => {
