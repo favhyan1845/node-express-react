@@ -1,0 +1,9 @@
+.UserCard {
+    color: #fff;
+    background-color: #222731;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 20px;
+}

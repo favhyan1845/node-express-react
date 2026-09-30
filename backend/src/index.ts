@@ -3,11 +3,11 @@ import users from './data/users';
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.json( '/users para obtener los usuarios' );
+app.get('/api/', (req, res) => {
+  res.json( '/api/users para obtener los usuarios' );
 });
 
-app.get('/users', (req, res) => {
+app.get('/api/users', (req, res) => {
   res.json(users);
 });
 

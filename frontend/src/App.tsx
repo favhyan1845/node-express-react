@@ -1,7 +1,29 @@
+import { useState, useEffect } from 'react';
+import UserCard from './components/UserCard';
+
+interface User {
+    id: number;
+    name: string;
+    age: number;
+}
 const App = () => {
+    const [users, setUsers] = useState<User[] | null>(null);
+
+    useEffect(() => {
+        fetch('/api/users')
+            .then((response) => response.json())
+            .then((data) => setUsers(data))
+            .catch((err) => console.error('Error fetching users:', err));
+    }, []);
+
+    if(users === null) {
+       return <div>No hay usuarios</div>;
+    }
   return (
-    <div>
-      <h1>Bienvenido a React con TypeScript y Vite!</h1>
+    <div className="App">
+      {users?.map((user) => (
+        <UserCard key={user.id} name={user.name} age={user.age} />
+      ))}
     </div>
   );
 };
